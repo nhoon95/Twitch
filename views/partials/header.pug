@@ -1,4 +1,17 @@
 .header
-    .header__left
-        a(href="#")
-            img(src="../image/logo.png", alt="logo")
+    .header__header
+        .header__column
+            i.fab.fa-twitch
+        .header__column
+            form
+                input(type="text" placeholder="search")
+                button
+                    i.fa.fa-search
+        .header__column
+            a(href=routes.login)
+                button Login
+            a(href=routes.join)
+                button Join
+        
+            
+            
