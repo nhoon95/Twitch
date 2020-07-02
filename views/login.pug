@@ -1,1 +1,10 @@
 extends layouts/main
+
+block content
+    form(action=routes.home, method="post")
+        input(type="text", name="name", placeholder="ID") 아이디
+        input(type="password", name="password", placeholder="password") 비밀번호
+    span
+        |-------------OR------------
+    .socialLogin
+        

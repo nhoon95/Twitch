@@ -1,10 +1,11 @@
 .header
     .header__header
         .header__column
-            i.fab.fa-twitch
+            a(href=routes.home)
+                i.fab.fa-twitch
         .header__column
-            form
-                input(type="text" placeholder="search")
+            form(action=routes.search, method="get")
+                input(type="text" placeholder="search", name="search")
                 button
                     i.fa.fa-search
         .header__column
