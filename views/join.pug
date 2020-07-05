@@ -2,9 +2,10 @@ extends layouts/main
 
 block content
     .form__container
-        form(action=routes.home, method="post")
-            input(type="text", name="name", placeholder="Id") 아이디
-            input(type="password", name="password", placeholder="Password") 비밀번호
-            input(type="password", name="password1", placeholder="Password") 비밀번호 확인
-            input(type="email", name="email", placeholder="Email") 이메일
+        form(action=routes.join, method="post")
+            input(type="email", name="email", placeholder="Email") 
+            input(type="text", name="name", placeholder="Name") 
+            input(type="password", name="password", placeholder="Password") 
+            input(type="password", name="password1", placeholder="Password") 
             input(type="submit", value="JOIN NOW")
+    include partials/socialLogin

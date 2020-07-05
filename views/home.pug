@@ -1,1 +1,8 @@
 extends layouts/main
+
+block content
+    .video
+        each video in testVideo
+            video=video.videoFile
+            h1=video.title
+            p=video.id

@@ -7,9 +7,9 @@ const JOIN = "/join";
 
 //userrrrrr
 const USER = "/user";
-const USERDETAIL = "/:id";
 const EDIT_PROFILE = "/editprofile";
 const CHANGE_PASSWORD = "/changepassword";
+const USERDETAIL = "/:id";
 
 //videoooooo
 const VIDEO = "/video";
