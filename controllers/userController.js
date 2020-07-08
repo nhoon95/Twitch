@@ -1,8 +1,13 @@
 import routes from "../routes";
-import { videos } from "../db";
+import Video from "../models/Video";
 
-export const home = (req, res) => {
-  res.render("home", { testVideo: videos });
+export const home = async (req, res) => {
+  const videos = await Video.find({});
+  try {
+    res.render("home", { videos });
+  } catch {
+    res.render("home", { videos: [] });
+  }
 };
 
 export const getLogin = (req, res) => res.render("login");
