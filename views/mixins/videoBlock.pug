@@ -1,6 +1,6 @@
 mixin videoBlock(video = {})
     .videoBlock
-        .videoBlock__column
-            여기에 프로필사진
-        .videoBlock__column
-            등등
+        a(href=routes.videoDetail(video.id))
+            video.videoBlock__thumbnail(src=video.videoFile, controls=true)
+            h4.videoBlock__title=video.title
+            h6.videoBlock__views=video.views

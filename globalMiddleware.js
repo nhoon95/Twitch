@@ -1,6 +1,7 @@
 import routes from "./routes";
+import multer from "multer";
 
-import "./routes";
+const multerSetting = multer({ dest: "video/uploads/" });
 
 export const handleMiddleware = (req, res, next) => {
   res.locals.routes = routes;
@@ -10,3 +11,5 @@ export const handleMiddleware = (req, res, next) => {
   };
   next();
 };
+
+export const middleMulter = multerSetting.single("videoFile");

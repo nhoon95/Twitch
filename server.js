@@ -1,3 +1,4 @@
+import "./db";
 import app from "./app";
 import express from "express";
 import "./models/Video";

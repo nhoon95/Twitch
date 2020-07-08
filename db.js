@@ -14,12 +14,10 @@ const handleMongo = () => {
   console.log("Mongo is connected");
 };
 
-const handleError = () => {
-  console.log("You got mongo Error");
+const handleError = (error) => {
+  console.log(`You got mongo ${error}`);
 };
 
 db.on("error", handleError);
 
 db.once("open", handleMongo);
-
-export default db;
