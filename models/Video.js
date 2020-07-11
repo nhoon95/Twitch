@@ -18,6 +18,9 @@ const VideoSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  game: {
+    type: String,
+  },
   comments: [
     {
       type: mongoose.Schema.Types.ObjectId,

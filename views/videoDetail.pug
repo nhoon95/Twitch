@@ -1,1 +1,10 @@
 extends layouts/main
+
+block content
+    .videoDetail
+        video(src=`${video.fileUrl}`, controls=true, autoplay=true)
+        .videoDetail_column
+            img
+        .videoDetail_column
+            .Description=video.description
+            .game=video.game
