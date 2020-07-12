@@ -31,10 +31,22 @@ const routes = {
       return USERDETAIL;
     }
   },
-  editVideo: EDITVIDEO,
+  editVideo: (id) => {
+    if (id) {
+      return `/video/${id}/editvideo`;
+    } else {
+      return EDITVIDEO;
+    }
+  },
   editProfile: EDIT_PROFILE,
   changePassword: CHANGE_PASSWORD,
-  deleteVideo: DELETEVIDEO,
+  deleteVideo: (id) => {
+    if (id) {
+      return `/video/${id}/deletevideo`;
+    } else {
+      return DELETEVIDEO;
+    }
+  },
   user: USER,
   upload: UPLOAD,
   videoDetail: (id) => {

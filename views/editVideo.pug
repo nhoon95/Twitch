@@ -1,1 +1,17 @@
 extends layouts/main
+
+block content
+    .form-container
+        form(action=routes.editVideo(video.id), method="post")
+            input(type="text", name="title", placeholder="title", value=video.title)
+            input(type="text", name="description", placeholder="description", value=video.description)
+            input(list="games", name="game", value=video.game)            
+            datalist(id="games", name="gameList")
+                option(value="League Of Legends")
+                option(value="Call of Duty")
+                option(valye="Minecraft")
+                option(value="Battle Ground")
+                option(value="Sudden Attack")
+            input(type="text", name="creator", placeholder="create by", value=video.creator)
+            input(type="submit", value="Update Video")
+        a.form-container__deleteVIdeo(href=routes.deleteVideo(video.id)) Delete Video

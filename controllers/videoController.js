@@ -32,9 +32,46 @@ export const videoDetail = async (req, res) => {
 };
 
 export const video = (req, res) => res.render("video");
-export const editVideo = (req, res) => res.render("editVideo");
 
-export const deleteVideo = (req, res) => res.render("deleteVideo");
+export const getEditVideo = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  try {
+    const video = await Video.findById(id);
+    res.render("editVideo", { video });
+  } catch (error) {
+    console.log(error);
+    res.redirect(routes.home);
+  }
+};
+export const postEditVideo = async (req, res) => {
+  const {
+    params: { id },
+    //나중에 크리에이터 만들어서 집어넣어
+    body: { title, description, game, creator },
+  } = req;
+  try {
+    await Video.findOneAndUpdate({ _id: id }, { title, description, game });
+    res.redirect(routes.videoDetail(id));
+  } catch (error) {
+    console.log(error);
+    res.redirect(routes.home);
+  }
+};
+
+export const deleteVideo = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  try {
+    await Video.findByIdAndDelete({ _id: id });
+    res.redirect(routes.home);
+  } catch (error) {
+    console.log(error);
+    res.render("deleteVideo");
+  }
+};
 
 export const search = (req, res) => {
   const {
