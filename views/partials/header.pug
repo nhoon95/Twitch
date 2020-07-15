@@ -1,4 +1,4 @@
-.header
+header.header
     .header__header
         .header__column
             a(href=routes.home)
@@ -9,16 +9,22 @@
                 button
                     i.fa.fa-search
         .header__column
-            if !user.isAthenticated
-                a(href=routes.login) 
-                    button Login
-                a(href=routes.join)
-                    button Join
-            else
-                a(href=routes.userDetail(user.id))
-                    button User Detail
-                a(href=`${routes.video}/upload`)
-                    button Upload
-                a(href=routes.logout)
-                    button Log Out  
-            
+            ul
+                if !user.isAthenticated
+                    li                   
+                        a(href=routes.login) 
+                            button Login
+                    li
+                        a(href=routes.join)
+                            button Join
+                else
+                    li
+                        a(href=routes.userDetail(user.id))
+                            button User Detail
+                    li
+                        a(href=`${routes.video}/upload`)
+                            button Upload
+                    li
+                        a(href=routes.logout)
+                            button Log Out  
+                    

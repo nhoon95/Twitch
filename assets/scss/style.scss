@@ -1,3 +1,8 @@
-body {
-  background-color: red;
-}
+@import "./mixins/videoBlock.scss";
+
+@import "./partials/formContainer.scss";
+@import "./partials/header.scss";
+@import "./partials/socialLogin.scss";
+@import "../scss/partials/body.scss";
+
+@import "./reset.scss";

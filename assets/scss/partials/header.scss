@@ -1,0 +1,41 @@
+.header {
+  background-color: #ffffff;
+  margin-bottom: 50px;
+  .header__header {
+    padding: 5px 0px;
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    .header__column {
+      &:nth-child(1) {
+        margin-left: 5px;
+        justify-self: self-start;
+        i {
+          font-size: 28px;
+          color: #9147ff;
+        }
+      }
+      &:nth-child(2) {
+        justify-self: center;
+        width: 100%;
+      }
+      &:last-child {
+        justify-self: end;
+        margin-right: 5px;
+      }
+      ul {
+        display: flex;
+      }
+    }
+  }
+  form {
+    width: 100%;
+    input {
+      height: 10px;
+      width: 220px;
+    }
+  }
+}
