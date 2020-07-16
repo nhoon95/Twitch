@@ -6,17 +6,17 @@ header.header
         .header__column
             form(action=routes.search, method="get")
                 input(type="text" placeholder="search", name="search")
-                button
+                button.searchBtn
                     i.fa.fa-search
         .header__column
             ul
                 if !user.isAthenticated
                     li                   
                         a(href=routes.login) 
-                            button Login
+                            button.loginBtn Login
                     li
                         a(href=routes.join)
-                            button Join
+                            button.joinBtn Join
                 else
                     li
                         a(href=routes.userDetail(user.id))
