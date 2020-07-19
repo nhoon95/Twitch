@@ -66,11 +66,10 @@ export const deleteVideo = async (req, res) => {
   } = req;
   try {
     await Video.findByIdAndDelete({ _id: id });
-    res.redirect(routes.home);
   } catch (error) {
     console.log(error);
-    res.render("deleteVideo");
   }
+  res.redirect(routes.home);
 };
 
 export const search = async (req, res) => {
