@@ -4,16 +4,17 @@ import Video from "../models/Video";
 export const getUpload = (req, res) => res.render("upload");
 export const postUpload = async (req, res) => {
   const {
-    body: { title, description, game },
+    body: { title, description, game, imgFile },
     file: { path },
   } = req;
+  console.log(file);
   const newVideo = await Video.create({
     fileUrl: path,
     title,
     description,
     game,
+    imgFile,
   });
-  console.log(newVideo);
   res.redirect(routes.videoDetail(newVideo.id));
 };
 

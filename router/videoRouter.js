@@ -11,11 +11,11 @@ import {
   getEditVideo,
   postEditVideo,
 } from "../controllers/videoController";
-import { middleMulter } from "../globalMiddleware";
+import { multerImage, multerVideo } from "../globalMiddleware";
 export const videoRouter = express.Router();
 
 videoRouter.get(routes.upload, getUpload);
-videoRouter.post(routes.upload, middleMulter, postUpload);
+videoRouter.post(routes.upload, multerImage, multerVideo, postUpload);
 
 videoRouter.get(routes.videoDetail(), videoDetail);
 
