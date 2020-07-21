@@ -106,3 +106,4 @@ package.json
 package-lock.json
 .env
 static
+uploads

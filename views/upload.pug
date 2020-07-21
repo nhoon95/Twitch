@@ -4,7 +4,7 @@ block content
     .form-container
         form(action=`${routes.video}/upload`, method="post", enctype="multipart/form-data")
             label(for="Video File")
-            input(type="file", name="videoFile")
+            input(type="file", id="videoFile" name="videoFile")
             input(list="games", name="game")
             datalist(id="games", name="gameList")
                 option(value="League Of Legends")
@@ -12,8 +12,6 @@ block content
                 option(valye="Minecraft")
                 option(value="Battle Ground")
                 option(value="Sudden Attack")
-            label(for="img File")
-            input(type="file", name="imgFile", accept="image/*")
             input(type="text", name="title", placeholder="title")
             input(type="text", name="description", placeholder="description")
             input(type="text", name="creator", placeholder="create by")

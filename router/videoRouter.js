@@ -15,7 +15,7 @@ import { multerImage, multerVideo } from "../globalMiddleware";
 export const videoRouter = express.Router();
 
 videoRouter.get(routes.upload, getUpload);
-videoRouter.post(routes.upload, multerImage, multerVideo, postUpload);
+videoRouter.post(routes.upload, multerVideo, postUpload);
 
 videoRouter.get(routes.videoDetail(), videoDetail);
 
