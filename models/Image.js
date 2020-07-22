@@ -1,8 +1,7 @@
-/*
 import mongoose from "mongoose";
 
 const imageSchema = new mongoose.Schema({
-  imgFile: {
+  imageFileUrl: {
     type: String,
     required: "img is required",
   },
@@ -11,4 +10,3 @@ const imageSchema = new mongoose.Schema({
 const model = mongoose.model("Img", imageSchema);
 
 export default model;
-*/

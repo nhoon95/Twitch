@@ -1,7 +1,13 @@
 .videoBlock {
+  display: flex;
+  width: 100%;
+  a {
+    text-decoration: none;
+    color: black;
+  }
   video {
-    margin-bottom: 10px;
-    max-width: 100%;
+    display: inline-block;
+    max-width: 365px;
     max-height: 200px;
   }
   .videoBlock__title {

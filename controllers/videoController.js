@@ -1,19 +1,28 @@
 import routes from "../routes";
 import Video from "../models/Video";
+import Image from "../models/Image";
 
 export const getUpload = (req, res) => res.render("upload");
 export const postUpload = async (req, res) => {
-  const {
-    body: { title, description, game },
-    file: { path },
-  } = req;
-  const newVideo = await Video.create({
-    fileUrl: path,
-    title,
-    description,
-    game,
-  });
-  res.redirect(routes.videoDetail(newVideo.id));
+  try {
+    const path1 = await req.files["videoFile"][0].path;
+    //const path2 = await req.files["imageFile"][0].path;
+    //이제 여기서 밑에 코멘트 넣을떄 이미지파일을 몽구스에 넣으믄대
+    console.log(path1);
+    const {
+      body: { title, description, game, creator },
+    } = req;
+    const newVideo = await Video.create({
+      fileUrl: path1,
+      title,
+      description,
+      game,
+      creator,
+    });
+    res.redirect(routes.videoDetail(newVideo.id));
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const videoDetail = async (req, res) => {

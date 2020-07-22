@@ -5,6 +5,8 @@ block content
         form(action=`${routes.video}/upload`, method="post", enctype="multipart/form-data")
             label(for="Video File")
             input(type="file", id="videoFile" name="videoFile")
+            label(for="image File")
+            input(type="file", id="imageFile" name="imageFile")
             input(list="games", name="game")
             datalist(id="games", name="gameList")
                 option(value="League Of Legends")
