@@ -3,11 +3,15 @@ extends layouts/main
 block content
     .form-container
         form(action=`${routes.video}/upload`, method="post", enctype="multipart/form-data")
-            label(for="Video File")
-            input(type="file", id="videoFile" name="videoFile")
-            label(for="image File")
-            input(type="file", id="imageFile" name="imageFile")
-            input(list="games", name="game")
+            .videoInput
+                span Video File : 
+                label(for="Video File")
+                input(type="file", id="videoFile" name="videoFile")
+            .imageInput
+                span Image File :
+                label(for="image File")
+                input(type="file", id="imageFile" name="imageFile")
+            input(list="games", name="game", placeholder="Choose Game")
             datalist(id="games", name="gameList")
                 option(value="League Of Legends")
                 option(value="Call of Duty")
