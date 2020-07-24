@@ -18,6 +18,9 @@ const VIDEODETAIL = "/:id";
 const EDITVIDEO = "/:id/editvideo";
 const DELETEVIDEO = "/:id/deletevideo";
 
+//favicon
+const FAVICON = "/favicon.ico";
+
 const routes = {
   home: HOME,
   login: LOGIN,
@@ -57,6 +60,7 @@ const routes = {
     }
   },
   join: JOIN,
+  favicon: FAVICON,
 };
 
 export default routes;

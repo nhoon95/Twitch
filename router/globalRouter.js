@@ -9,6 +9,7 @@ import {
   postJoin,
   getLogin,
   postLogin,
+  favicon,
 } from "../controllers/userController";
 import { search } from "../controllers/videoController";
 
@@ -24,3 +25,5 @@ globalRouter.get(routes.home, home);
 globalRouter.get(routes.search, search);
 
 globalRouter.get(routes.logOut, logout);
+
+globalRouter.get(routes.favicon, favicon);

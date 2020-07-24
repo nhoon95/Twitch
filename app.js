@@ -9,9 +9,11 @@ import { globalRouter } from "./router/globalRouter";
 import { videoRouter } from "./router/videoRouter";
 import routes from "./routes";
 import { handleMiddleware } from "./globalMiddleware";
+import favicon from "serve-favicon";
 
 const app = express();
 
+app.use(favicon(path.join(__dirname, "public/images", "favicon.ico")));
 app.use(helmet());
 app.set("view engine", "pug");
 app.use("/uploads", express.static("uploads"));

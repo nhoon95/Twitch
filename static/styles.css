@@ -68,8 +68,29 @@ body {
       transition: 0.3s border-color;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
       transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+    .form-container form input[value] {
+      font-size: 16px;
+      font-weight: 400; }
     .form-container form input:hover {
       box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+
+.form-container__CPW {
+  margin-top: 10px; }
+  .form-container__CPW button {
+    margin: 0 auto;
+    padding: 10px 0;
+    width: 250px;
+    background-color: #8c7ae6;
+    color: white;
+    font-weight: 400;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    transition: 0.3s border-color;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+  .form-container__CPW button:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
 
 .header {
   background-color: #ffffff;
@@ -140,13 +161,12 @@ body {
   width: 100%;
   margin: 0 auto; }
   .socialLogin .socialLogin__github {
-    width: 250px;
-    color: white; }
+    width: 250px; }
     .socialLogin .socialLogin__github button {
       width: 100%;
       margin: 8px 0;
       padding: 10px;
-      background-color: yellowgreen;
+      background-color: #efefef;
       box-sizing: border-box;
       border-radius: 10px;
       border: 1px solid #eee;
@@ -154,9 +174,42 @@ body {
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
       transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
     .socialLogin .socialLogin__github span {
-      color: white; }
-  .socialLogin button:hover {
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+      font-weight: 600;
+      margin-left: 5px;
+      font-size: 15px;
+      color: black; }
+    .socialLogin .socialLogin__github button:hover {
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+      background-color: black; }
+      .socialLogin .socialLogin__github button:hover span {
+        color: white; }
+      .socialLogin .socialLogin__github button:hover i {
+        color: white; }
+  .socialLogin .socialLogin__naver {
+    width: 250px; }
+    .socialLogin .socialLogin__naver button {
+      width: 100%;
+      margin: 8px 0;
+      padding: 10px;
+      background-color: #efefef;
+      box-sizing: border-box;
+      border-radius: 10px;
+      border: 1px solid #eee;
+      transition: 0.3s border-color;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+      .socialLogin .socialLogin__naver button span {
+        font-weight: 600;
+        margin-left: 5px;
+        font-size: 15px;
+        color: black; }
+    .socialLogin .socialLogin__naver button:hover {
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+      background-color: #4cd137; }
+      .socialLogin .socialLogin__naver button:hover span {
+        color: white; }
+      .socialLogin .socialLogin__naver button:hover i {
+        color: white; }
 
 body {
   background-color: #f6f6f7;
