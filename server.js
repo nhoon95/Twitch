@@ -3,6 +3,7 @@ import app from "./app";
 import "./models/Video";
 import "./models/Comment";
 import "./models/Image";
+import "./models/User";
 
 const PORT = 7640;
 

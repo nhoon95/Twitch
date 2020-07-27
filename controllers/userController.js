@@ -1,5 +1,6 @@
 import routes from "../routes";
 import Video from "../models/Video";
+import User from "../models/User";
 
 export const home = async (req, res) => {
   const {
@@ -25,7 +26,7 @@ export const logout = (req, res) => {
 
 export const getJoin = (req, res) => res.render("join");
 
-export const postJoin = (req, res) => {
+export const postJoin = async (req, res) => {
   const {
     body: { email, name, password, password1 },
   } = req;
@@ -33,7 +34,16 @@ export const postJoin = (req, res) => {
     res.status(400);
     res.render("join");
   } else {
-    res.redirect(routes.home);
+    try {
+      const user = await User.create({
+        email,
+        name,
+      });
+      User.register(user, password);
+      res.redirect(routes.home);
+    } catch (error) {
+      console.log(error);
+    }
   }
 };
 
@@ -42,7 +52,3 @@ export const userDetail = (req, res) => res.render("userDetail");
 export const editProfile = (req, res) => res.render("editProfile");
 
 export const changePassword = (req, res) => res.render("changePassword");
-
-export const favicon = (req, res) => {
-  res.render("favicon.ico");
-};
