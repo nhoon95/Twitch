@@ -1,7 +1,9 @@
 import routes from "../routes";
 import Video from "../models/Video";
 import User from "../models/User";
+import passport from "passport";
 
+//집
 export const home = async (req, res) => {
   const {
     body: { views },
@@ -15,34 +17,40 @@ export const home = async (req, res) => {
   }
 };
 
+//로그인
 export const getLogin = (req, res) => res.render("login");
-export const postLogin = (req, res) => {
-  res.redirect(routes.home);
-};
 
+export const postLogin = passport.authenticate("local", {
+  successRedirect: routes.home,
+  failureRedirect: routes.join,
+});
+
+//로그아웃
 export const logout = (req, res) => {
   res.redirect(routes.home);
 };
 
+//가입
 export const getJoin = (req, res) => res.render("join");
 
-export const postJoin = async (req, res) => {
+export const postJoin = async (req, res, next) => {
   const {
     body: { email, name, password, password1 },
   } = req;
   if (password !== password1) {
     res.status(400);
-    res.render("join");
+    res.redirect(routes.join);
   } else {
     try {
-      const user = await User.create({
+      const user = await User({
         email,
         name,
       });
-      User.register(user, password);
-      res.redirect(routes.home);
+      await User.register(user, password);
+      next();
     } catch (error) {
       console.log(error);
+      res.redirect(routes.home);
     }
   }
 };

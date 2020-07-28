@@ -10,7 +10,9 @@ import { videoRouter } from "./router/videoRouter";
 import routes from "./routes";
 import { handleMiddleware } from "./globalMiddleware";
 import favicon from "serve-favicon";
-
+import "./passport";
+import passport from "passport";
+import expressSession from "express-session";
 const app = express();
 
 app.use(favicon(path.join(__dirname, "public/images", "favicon.ico")));
@@ -19,9 +21,19 @@ app.set("view engine", "pug");
 app.use("/uploads", express.static("uploads"));
 app.use("/static", express.static("static"));
 app.use(morgan("dev"));
+app.use(
+  expressSession({
+    secret: process.env.SECRET_COOKIE,
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use(handleMiddleware);
 
 app.use(routes.home, globalRouter);

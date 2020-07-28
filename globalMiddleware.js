@@ -5,11 +5,9 @@ const videoMulter = multer({ dest: "uploads/video/" });
 
 export const handleMiddleware = (req, res, next) => {
   res.locals.routes = routes;
-  res.locals.user = {
-    isAthenticated: true,
-    id: 1,
-  };
+  res.locals.user = req.user || null;
   next();
+  console.log(req.user);
 };
 
 export const multerVideo = videoMulter.fields([
