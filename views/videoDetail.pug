@@ -2,11 +2,11 @@ extends layouts/main
 
 block content
     .videoDetail
-        video(src=`${video.fileUrl}`, controls=true, autoplay=true)
-        .videoDetail_column
-            img
-        .videoDetail_column
-            .Description=video.description
-            .game=video.game
-        .editVideo
-            a(href=routes.editVideo(video.id)) editVideo
+        video(src=video.fileUrl, controls=true)
+    .videoDetail_column
+        img(src=`${video.imageFileUrls.imageFileUrl}`)
+    .videoDetail_column
+        .Description=video.description
+        .game=video.game
+    .editVideo
+        a(href=routes.editVideo(video.id)) editVideo

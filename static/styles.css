@@ -4,6 +4,9 @@
   .videoBlock a {
     text-decoration: none;
     color: black; }
+  .videoBlock img {
+    width: 200px;
+    height: 150px; }
   .videoBlock video {
     display: inline-block;
     max-width: 365px;

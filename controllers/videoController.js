@@ -20,8 +20,9 @@ export const postUpload = async (req, res) => {
       description,
       game,
       creator,
-      imageFileUrls: [newImage._id],
+      imageFileUrls: [JSON.parse(newImage.imageFileUrl)],
     });
+    console.log(newVideo.imageFileUrls.imageFileUrl);
     res.redirect(routes.videoDetail(newVideo.id));
   } catch (error) {
     console.log(error);
@@ -35,7 +36,6 @@ export const videoDetail = async (req, res) => {
   try {
     const video = await Video.findById(id);
     res.render("videoDetail", { video });
-    console.log(video);
   } catch (error) {
     console.log(error);
     res.redirect(routes.home);

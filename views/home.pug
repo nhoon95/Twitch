@@ -5,8 +5,9 @@ block content
     .home-videos
         each video in videos
             +videoBlock({
-                videoFile:video.fileUrl,
                 id:video.id,
+                videoFile:video.fileUrl,
+                imageFile:`${video.imageFileUrls.imageFileUrl}`,
                 title:video.title,
                 views:video.views,
                 game:video.game
