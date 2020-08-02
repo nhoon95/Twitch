@@ -25,9 +25,13 @@ export const postLogin = passport.authenticate("local", {
   failureRedirect: routes.join,
 });
 
+export const comeBackToHome = (accessToken, refreshToken, profile, cb) => {
+  console.log(accessToken, refreshToken, profile, cb);
+};
+
 //로그아웃
 export const logout = (req, res) => {
-  res.redirect(routes.home);
+  req.logout(routes.home);
 };
 
 //가입

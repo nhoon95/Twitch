@@ -13,7 +13,11 @@ import favicon from "serve-favicon";
 import "./passport";
 import passport from "passport";
 import expressSession from "express-session";
+import MongoStore from "connect-mongo";
+import mongoose from "mongoose";
 const app = express();
+
+const CokieStore = MongoStore(expressSession);
 
 app.use(favicon(path.join(__dirname, "public/images", "favicon.ico")));
 app.use(helmet());
@@ -26,6 +30,7 @@ app.use(
     secret: process.env.SECRET_COOKIE,
     resave: false,
     saveUninitialized: true,
+    store: new CokieStore({ mongooseConnection: mongoose.connection }),
   })
 );
 app.use(cookieParser());
