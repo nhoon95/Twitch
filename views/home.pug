@@ -7,7 +7,7 @@ block content
             +videoBlock({
                 id:video.id,
                 videoFile:video.fileUrl,
-                imageFile:`${video.imageFileUrls.imageFileUrl}`,
+                imageFile:video.imageFileUrls[0].imageFileUrl,
                 title:video.title,
                 views:video.views,
                 game:video.game

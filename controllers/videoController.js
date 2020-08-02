@@ -20,9 +20,9 @@ export const postUpload = async (req, res) => {
       description,
       game,
       creator,
-      imageFileUrls: [JSON.parse(newImage.imageFileUrl)],
+      imageFileUrls: [newImage],
     });
-    console.log(newVideo.imageFileUrls.imageFileUrl);
+    console.log(newVideo);
     res.redirect(routes.videoDetail(newVideo.id));
   } catch (error) {
     console.log(error);
