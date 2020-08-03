@@ -1,5 +1,6 @@
 import express from "express";
 import routes from "../routes";
+import passport from "passport";
 import {
   home,
   logout,
@@ -7,6 +8,8 @@ import {
   postJoin,
   getLogin,
   postLogin,
+  githubLogin,
+  goToHome,
 } from "../controllers/userController";
 import { search } from "../controllers/videoController";
 
@@ -23,3 +26,13 @@ globalRouter.get(routes.home, home);
 globalRouter.get(routes.search, search);
 
 globalRouter.get(routes.logOut, logout);
+
+//깃허브
+
+globalRouter.get(routes.github, githubLogin);
+
+globalRouter.get(
+  routes.githubCallback,
+  passport.authenticate("github", { failureRedirect: "/login" }),
+  goToHome
+);

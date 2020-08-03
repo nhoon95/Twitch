@@ -105,5 +105,7 @@ dist
 package.json
 package-lock.json
 .env
-static
+/static
 uploads
+main.js
+/static/main.js

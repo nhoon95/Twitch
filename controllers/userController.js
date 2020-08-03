@@ -25,13 +25,46 @@ export const postLogin = passport.authenticate("local", {
   failureRedirect: routes.join,
 });
 
-export const comeBackToHome = (accessToken, refreshToken, profile, cb) => {
-  console.log(accessToken, refreshToken, profile, cb);
+//깃허브로그인
+
+export const githubLogin = passport.authenticate("github");
+
+export const githubCallback = async (
+  accessToken,
+  refreshToken,
+  profile,
+  cb
+) => {
+  const {
+    _json: { id, avatar_url, name, email },
+  } = profile;
+  try {
+    const user = await User.findOne({ email: email });
+    if (user) {
+      user.githubId = id;
+      user.save();
+      return cb(null, user);
+    } else {
+      const newUser = await User.create({
+        email,
+        name,
+        avatarUrl: avatar_url,
+      });
+      return cb(null, newUser);
+    }
+  } catch (error) {
+    return cb(error);
+  }
+};
+
+export const goToHome = (req, res) => {
+  res.redirect(routes.home);
 };
 
 //로그아웃
 export const logout = (req, res) => {
-  req.logout(routes.home);
+  req.logout();
+  res.redirect(routes.home);
 };
 
 //가입

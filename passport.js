@@ -1,7 +1,7 @@
 import passport from "passport";
 import User from "./models/User";
 import GitHubStrategy from "passport-github";
-import { comeBackToHome } from "./controllers/userController";
+import { comeBackToHome, githubCallback } from "./controllers/userController";
 
 passport.use(
   new GitHubStrategy(
@@ -10,7 +10,7 @@ passport.use(
       clientSecret: process.env.GIT_SECRET,
       callbackURL: "http://localhost:7640/auth/github/callback",
     },
-    comeBackToHome
+    githubCallback
   )
 );
 

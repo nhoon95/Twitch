@@ -18,6 +18,9 @@ const VIDEODETAIL = "/:id";
 const EDITVIDEO = "/:id/editvideo";
 const DELETEVIDEO = "/:id/deletevideo";
 
+const GITHUB = "/auth/github";
+const GITHUB_CALLBACK = "/auth/github/callback";
+
 //favicon
 const FAVICON = "/favicon.ico";
 
@@ -61,6 +64,8 @@ const routes = {
   },
   join: JOIN,
   favicon: FAVICON,
+  github: GITHUB,
+  githubCallback: GITHUB_CALLBACK,
 };
 
 export default routes;
