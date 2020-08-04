@@ -1,5 +1,6 @@
 extends layouts/main
 include mixins/videoBlock
+include mixins/imageBlock
 
 block content
     .home-videos
@@ -7,8 +8,11 @@ block content
             +videoBlock({
                 id:video.id,
                 videoFile:video.fileUrl,
-                imageFile:video.imageFileUrls[0].imageFileUrl,
                 title:video.title,
                 views:video.views,
                 game:video.game
+            })
+        each video in videos
+            +imageBlock({
+            imageFile:video.imageFileUrl
             })

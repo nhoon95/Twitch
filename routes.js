@@ -18,8 +18,13 @@ const VIDEODETAIL = "/:id";
 const EDITVIDEO = "/:id/editvideo";
 const DELETEVIDEO = "/:id/deletevideo";
 
+//github
 const GITHUB = "/auth/github";
 const GITHUB_CALLBACK = "/auth/github/callback";
+
+//naver
+const NAVER = "/auth/naver";
+const NAVER_CALLBACK = "/auth/naver/callback";
 
 //favicon
 const FAVICON = "/favicon.ico";
@@ -66,6 +71,8 @@ const routes = {
   favicon: FAVICON,
   github: GITHUB,
   githubCallback: GITHUB_CALLBACK,
+  naver: NAVER,
+  naverCallback: NAVER_CALLBACK,
 };
 
 export default routes;

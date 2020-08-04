@@ -10,6 +10,7 @@ import {
   postLogin,
   githubLogin,
   goToHome,
+  naverLogin,
 } from "../controllers/userController";
 import { search } from "../controllers/videoController";
 
@@ -34,5 +35,17 @@ globalRouter.get(routes.github, githubLogin);
 globalRouter.get(
   routes.githubCallback,
   passport.authenticate("github", { failureRedirect: "/login" }),
+  goToHome
+);
+
+//네이버
+
+globalRouter.get(routes.naver, naverLogin);
+
+globalRouter.get(
+  routes.naverCallback,
+  passport.authenticate("naver", {
+    failureRedirect: "/login",
+  }),
   goToHome
 );

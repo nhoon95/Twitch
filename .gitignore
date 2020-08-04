@@ -109,3 +109,5 @@ package-lock.json
 uploads
 main.js
 /static/main.js
+static/main.js
+static

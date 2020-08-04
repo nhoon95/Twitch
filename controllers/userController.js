@@ -5,12 +5,13 @@ import passport from "passport";
 
 //집
 export const home = async (req, res) => {
-  const {
-    body: { views },
-  } = req;
   try {
     const videos = await Video.find({}).sort({ _id: -1 });
-    res.render("home", { pageTitle: "Home", videos });
+    res.render("home", {
+      pageTitle: "Home",
+      videos,
+      images: videos.imageFileUrls,
+    });
   } catch (error) {
     console.log(error);
     res.render("home", { pageTitle: "Home", videos: [] });
@@ -28,6 +29,36 @@ export const postLogin = passport.authenticate("local", {
 //깃허브로그인
 
 export const githubLogin = passport.authenticate("github");
+
+export const naverLogin = passport.authenticate("naver");
+
+export const naverCallback = async (
+  accessToken,
+  refreshToken,
+  profile,
+  done
+) => {
+  const {
+    _json: { email, nickname, profile_image, id },
+  } = profile;
+  try {
+    const user = await User.findOne({ email: email });
+    if (user) {
+      user.naverId = id;
+      user.save();
+      done(null, user);
+    } else {
+      const newUser = await User.findOne({
+        email,
+        name: nickname || "nothing",
+        avatarUrl: profile_image,
+      });
+      return done(null, newUser);
+    }
+  } catch (error) {
+    done(error);
+  }
+};
 
 export const githubCallback = async (
   accessToken,
