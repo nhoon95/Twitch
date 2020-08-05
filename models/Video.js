@@ -27,7 +27,7 @@ const VideoSchema = new mongoose.Schema({
       ref: "Comment",
     },
   ],
-  imageFileUrl: {
+  imageFileUrls: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Img",
   },
