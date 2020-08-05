@@ -8,11 +8,14 @@ block content
             +videoBlock({
                 id:video.id,
                 videoFile:video.fileUrl,
+                imageFile:`${video.imagefileUrls[0].imagefileUrl}`,
                 title:video.title,
                 views:video.views,
                 game:video.game
             })
-        each video in videos
+    .home-images
+        each image in images
             +imageBlock({
-            imageFile:video.imageFileUrl
+                id:image.id,
+                imageFile:image.imageFileUrl
             })

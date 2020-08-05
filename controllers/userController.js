@@ -2,15 +2,19 @@ import routes from "../routes";
 import Video from "../models/Video";
 import User from "../models/User";
 import passport from "passport";
+import Image from "../models/Image";
 
 //집
 export const home = async (req, res) => {
   try {
     const videos = await Video.find({}).sort({ _id: -1 });
+    const images = await Image.find({});
+    //어차피 홈에있는 동영상빼고 아이디에 할당된 이미지만넣어
+    //주말에 꼭 해야된다 이세끼야
     res.render("home", {
       pageTitle: "Home",
       videos,
-      images: videos.imageFileUrls,
+      images,
     });
   } catch (error) {
     console.log(error);

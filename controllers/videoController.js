@@ -20,7 +20,7 @@ export const postUpload = async (req, res) => {
       description,
       game,
       creator,
-      imageFileUrls: [newImage],
+      imageFileUrl: newImage,
     });
     console.log(newVideo);
     res.redirect(routes.videoDetail(newVideo.id));
