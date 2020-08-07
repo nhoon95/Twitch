@@ -1,0 +1,7 @@
+mixin videoDetailBlock(video = {})
+    .videoDetailBlock
+        a(href=routes.videoDetail(video.id))  
+            video..videoDetailBlock__video(src=video.videoFile, controls=true)
+            h2..videoDetailBlock__create=video.creator
+            h4..videoDetailBlock__title=video.title
+            h6..videoDetailBlock__game=video.game

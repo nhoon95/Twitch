@@ -7,7 +7,9 @@ import Image from "../models/Image";
 //집
 export const home = async (req, res) => {
   try {
-    const videos = await Video.find({}).sort({ _id: -1 });
+    const videos = await Video.find({})
+      .sort({ _id: -1 })
+      .populate("imageFileUrls");
     const images = await Image.find({});
     //어차피 홈에있는 동영상빼고 아이디에 할당된 이미지만넣어
     //주말에 꼭 해야된다 이세끼야
@@ -36,12 +38,7 @@ export const githubLogin = passport.authenticate("github");
 
 export const naverLogin = passport.authenticate("naver");
 
-export const naverCallback = async (
-  accessToken,
-  refreshToken,
-  profile,
-  done
-) => {
+export const naverCallback = async (_, __, profile, done) => {
   const {
     _json: { email, nickname, profile_image, id },
   } = profile;
@@ -64,12 +61,7 @@ export const naverCallback = async (
   }
 };
 
-export const githubCallback = async (
-  accessToken,
-  refreshToken,
-  profile,
-  cb
-) => {
+export const githubCallback = async (_, __, profile, cb) => {
   const {
     _json: { id, avatar_url, name, email },
   } = profile;
@@ -88,11 +80,15 @@ export const githubCallback = async (
       return cb(null, newUser);
     }
   } catch (error) {
-    return cb(error);
+    cb(error);
   }
 };
 
-export const goToHome = (req, res) => {
+export const gitGoToHome = (req, res) => {
+  res.redirect(routes.home);
+};
+
+export const naverGoToHome = (req, res) => {
   res.redirect(routes.home);
 };
 

@@ -1,16 +1,19 @@
 .videoBlock {
   display: flex;
-  width: 100%; }
+  width: 100%;
+  margin: 0 auto; }
   .videoBlock a {
     text-decoration: none;
     color: black; }
   .videoBlock img {
-    width: 200px;
-    height: 150px; }
-  .videoBlock video {
-    display: inline-block;
-    max-width: 365px;
-    max-height: 200px; }
+    width: 100%;
+    margin: auto 0;
+    transform: scale(1);
+    animation-timing-function: linear; }
+  .videoBlock img:hover {
+    transform: scale(1.1); }
+  .videoBlock img:active {
+    transform: scale(1.2); }
   .videoBlock .videoBlock__title {
     font-size: 18px;
     font-weight: 300;
@@ -222,7 +225,8 @@ body {
   display: grid;
   grid-template-columns: 180px 180px 180px 180px 180px 180px 180px 180px;
   grid-template-rows: 300px 300px 300px 300px 300px 300px 300px 300px;
-  grid-gap: 5px; }
+  grid-gap: 10px;
+  margin: 0 auto; }
   .home-videos .videoBlock:first-child {
     grid-column-start: 1;
     grid-column-end: 3; }

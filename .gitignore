@@ -110,3 +110,6 @@ main.js
 static/main.js
 static
 static/main.js.
+
+package.json
+package-lock.json

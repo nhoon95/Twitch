@@ -11,16 +11,13 @@ export const postUpload = async (req, res) => {
     const {
       body: { title, description, game, creator },
     } = req;
-    const newImage = await Image.create({
-      imageFileUrl: path2,
-    });
     const newVideo = await Video.create({
       fileUrl: path1,
       title,
       description,
       game,
       creator,
-      imageFileUrls: newImage,
+      imageFileUrl: path2,
     });
     console.log(newVideo);
     res.redirect(routes.videoDetail(newVideo.id));

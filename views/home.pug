@@ -1,14 +1,12 @@
 extends layouts/main
 include mixins/videoBlock
-include mixins/imageBlock
 
 block content
     .home-videos
         each video in videos
             +videoBlock({
                 id:video.id,
-                videoFile:video.fileUrl,
-                imageFile:`${video.imageFileUrls[0].imageFileUrl}`,
+                imageFile:video.imageFileUrl,
                 title:video.title,
                 views:video.views,
                 game:video.game
