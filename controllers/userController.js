@@ -123,8 +123,61 @@ export const postJoin = async (req, res, next) => {
   }
 };
 
-export const userDetail = (req, res) => res.render("userDetail");
+export const userDetail = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  try {
+    const user = await User.findById(id);
+    res.render("userDetail", { pageTitle: "User Detail", user });
+  } catch (error) {
+    res.redirect(routes.home);
+  }
+};
 
-export const editProfile = (req, res) => res.render("editProfile");
+export const getEditProfile = (req, res) =>
+  res.render("editProfile", { pageTitle: "Edit Profile" });
 
-export const changePassword = (req, res) => res.render("changePassword");
+export const postEditProfile = async (req, res) => {
+  const {
+    body: { name, email },
+    file,
+  } = req;
+  try {
+    await User.findByIdAndUpdate(req.user.id, {
+      name,
+      email,
+      avatarUrl: file ? file.path : req.user.avatarUrl,
+    });
+    res.redirect(routes.me);
+  } catch (error) {
+    res.render("editProfile", { pageTitle: "Edit Profile" });
+  }
+};
+
+export const getMe = (req, res) => {
+  res.render("userDetail", { pageTitle: "User Detail", user: req.user });
+};
+
+//password
+export const getChangePassword = (req, res) =>
+  res.render("changePassword", { user: req.user });
+
+export const postChangePassword = async (req, res) => {
+  const {
+    body: { password, newPassword, newPassword1 },
+  } = req;
+  try {
+    if (newPassword !== newPassword1) {
+      res.redirect(`${routes.user}/changePassword`);
+      return;
+    } else {
+      await req.user.changePassword(password, newPassword);
+      //getme안간다 여기 고치자
+      res.redirect(routes.me);
+    }
+  } catch (error) {
+    console.log(error);
+    res.redirect(`${routes.user}/changePassword`);
+  }
+};

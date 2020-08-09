@@ -10,7 +10,7 @@ header.header
                     i.fa.fa-search
         .header__column
             ul
-                if !user
+                if !loggedUser
                     li                   
                         a(href=routes.login) 
                             button.loginBtn Login
@@ -22,6 +22,6 @@ header.header
                         button.dropBtn
                             i.fas.fa-bars
                         .dropDown-content
-                            a(href=routes.userDetail(user.id)) User Detail
+                            a(href=routes.userDetail(loggedUser.id)) User Detail
                             a(href=`${routes.video}/upload`) Upload
                             a(href=routes.logOut) Log Out 

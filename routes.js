@@ -10,6 +10,7 @@ const USER = "/user";
 const EDIT_PROFILE = "/editprofile";
 const CHANGE_PASSWORD = "/changepassword";
 const USERDETAIL = "/:id";
+const ME = "/me";
 
 //videoooooo
 const UPLOAD = "/upload";
@@ -73,6 +74,7 @@ const routes = {
   githubCallback: GITHUB_CALLBACK,
   naver: NAVER,
   naverCallback: NAVER_CALLBACK,
+  me: ME,
 };
 
 export default routes;

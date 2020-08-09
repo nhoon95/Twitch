@@ -99,7 +99,12 @@ dist
 
 # DynamoDB Local files
 .dynamodb/
-
+package.json
+package-lock.json
+/package.json
+/package-lock.json
+.package.json
+.package-lock.json
 # TernJS port file
 .tern-port
 .env
@@ -110,6 +115,3 @@ main.js
 static/main.js
 static
 static/main.js.
-
-package.json
-package-lock.json

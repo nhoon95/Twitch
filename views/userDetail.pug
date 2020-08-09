@@ -1,4 +1,13 @@
 extends layouts/main
 
 block content
-    p im a user detail
+    .user_profile
+        .user_profile__header
+            img.u-avatar(src=user.avatarUrl)
+            h4.profile__username=user.name
+        if user.id === loggedUser.id
+            .user-profile__btns
+                a(href=`/user${routes.editProfile}`)
+                    button ✏️ Edit Profile
+                a(href=`/user${routes.changePassword}`)
+                    button 🔒 Change Password 
