@@ -30,6 +30,13 @@ const VideoSchema = new mongoose.Schema({
   imageFileUrl: {
     type: String,
   },
+  creator: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  },
+  avatarUrls: {
+    type: String,
+  },
 });
 
 const model = mongoose.model("Video", VideoSchema);

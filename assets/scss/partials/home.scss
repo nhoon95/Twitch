@@ -21,3 +21,12 @@
     grid-column-end: 9;
   }
 }
+
+.videoBlock {
+  display: block;
+  .avatar__thumnail {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+  }
+}

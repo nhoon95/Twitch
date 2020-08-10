@@ -7,6 +7,12 @@ const userSchema = new mongoose.Schema({
   avatarUrl: String,
   githubId: Number,
   naverId: Number,
+  videos: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Video",
+    },
+  ],
 });
 
 userSchema.plugin(passportLocalMongoose, { usernameField: "email" });

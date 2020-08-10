@@ -103,7 +103,7 @@ package.json
 package-lock.json
 /package.json
 /package-lock.json
-.package.json
+.package.jsongit
 .package-lock.json
 # TernJS port file
 .tern-port

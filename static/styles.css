@@ -240,6 +240,13 @@ body {
     grid-column-start: 7;
     grid-column-end: 9; }
 
+.videoBlock {
+  display: block; }
+  .videoBlock .avatar__thumnail {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%; }
+
 html,
 body,
 div,

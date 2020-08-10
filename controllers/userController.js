@@ -9,7 +9,8 @@ export const home = async (req, res) => {
   try {
     const videos = await Video.find({})
       .sort({ _id: -1 })
-      .populate("imageFileUrls");
+      .populate("imageFileUrls")
+      .populate("creator");
     const images = await Image.find({});
     //어차피 홈에있는 동영상빼고 아이디에 할당된 이미지만넣어
     //주말에 꼭 해야된다 이세끼야
