@@ -114,4 +114,10 @@ main.js
 /static/main.js
 static/main.js
 static
-static/main.js.
+static/main.js
+package.json
+node_modules 
+index.js 
+package.json
+node_modules/
+tests/

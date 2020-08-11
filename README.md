@@ -11,4 +11,4 @@ build on Twitch flatform by myself
 - [o]userDetail:make a user thumbnail in join and put the thumbnail in
 - [o] 일단 multer로 이미지 같이 업로드해서 홈에서 그리드를 사용해서 넣기(each로 하라는데 일단 해봄)
 - [x] onlypublic and onlyPrivate
-- [x] 홈에 비디오 크리에이터 사진 넣고 싶다 ㅠ
+- [o] put the creator's profile to home 

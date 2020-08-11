@@ -242,10 +242,47 @@ body {
 
 .videoBlock {
   display: block; }
-  .videoBlock .avatar__thumnail {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%; }
+  .videoBlock .videoBlock__column-2 {
+    display: flex; }
+    .videoBlock .videoBlock__column-2 .videoBlock__column-2-1 {
+      margin-left: 5px;
+      margin-right: 10px; }
+      .videoBlock .videoBlock__column-2 .videoBlock__column-2-1 .avatar__thumnail {
+        height: 45px;
+        width: 45px;
+        border-radius: 50%; }
+
+.video-detail__container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center; }
+  .video-detail__container .video__player video {
+    width: 500px;
+    height: 300px; }
+  .video-detail__container .video__info {
+    display: inline-block;
+    margin-top: 15px;
+    opacity: 80%; }
+    .video-detail__container .video__info .title {
+      display: flex;
+      justify-content: space-between; }
+    .video-detail__container .video__info .description {
+      display: flex;
+      justify-content: space-between; }
+    .video-detail__container .video__info .views {
+      display: flex;
+      justify-content: space-between; }
+    .video-detail__container .video__info p {
+      position: relative;
+      right: 90px; }
+    .video-detail__container .video__info h5 {
+      text-align: right;
+      position: relative;
+      left: 70px; }
+    .video-detail__container .video__info .video__author {
+      margin-top: 10px;
+      font-size: 20px; }
 
 html,
 body,

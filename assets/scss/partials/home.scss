@@ -24,9 +24,16 @@
 
 .videoBlock {
   display: block;
-  .avatar__thumnail {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
+  .videoBlock__column-2 {
+    display: flex;
+    .videoBlock__column-2-1 {
+      margin-left: 5px;
+      margin-right: 10px;
+      .avatar__thumnail {
+        height: 45px;
+        width: 45px;
+        border-radius: 50%;
+      }
+    }
   }
 }
