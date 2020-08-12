@@ -11,8 +11,24 @@
   }
   .video__info {
     display: inline-block;
+    margin: 0 auto;
     margin-top: 15px;
     opacity: 80%;
+    .video__editVideo {
+      display: flex;
+      justify-content: center;
+      button {
+        margin: 0 auto;
+        width: 200px;
+        height: 25px;
+        border-radius: 50px;
+        font-size: 18px;
+      }
+      button:hover {
+        color: blue;
+      }
+    }
+
     .title {
       display: flex;
       justify-content: space-between;

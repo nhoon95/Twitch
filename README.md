@@ -10,5 +10,6 @@ build on Twitch flatform by myself
 - [o]videoDetail: make a creator and put the creator in
 - [o]userDetail:make a user thumbnail in join and put the thumbnail in
 - [o] 일단 multer로 이미지 같이 업로드해서 홈에서 그리드를 사용해서 넣기(each로 하라는데 일단 해봄)
+- [o] put the creator's profile to home
+- [o] scss-> videoDetail button, userdetail
 - [x] onlypublic and onlyPrivate
-- [o] put the creator's profile to home 
