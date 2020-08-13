@@ -7,6 +7,7 @@ import bodyParser from "body-parser";
 import { userRouter } from "./router/userRouter";
 import { globalRouter } from "./router/globalRouter";
 import { videoRouter } from "./router/videoRouter";
+import { apiRouter } from "./router/apiRouter";
 import routes from "./routes";
 import { handleMiddleware } from "./globalMiddleware";
 import favicon from "serve-favicon";
@@ -44,5 +45,6 @@ app.use(handleMiddleware);
 app.use(routes.home, globalRouter);
 app.use(routes.user, userRouter);
 app.use(routes.video, videoRouter);
+app.use(routes.api, apiRouter);
 
 export default app;

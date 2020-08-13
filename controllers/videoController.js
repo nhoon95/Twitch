@@ -107,3 +107,20 @@ export const search = async (req, res) => {
   }
   res.render("search", { searching: search });
 };
+
+//view
+
+export const postView = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  try {
+    const video = await Video.findById(id);
+    video.views += 1;
+    video.save();
+  } catch (error) {
+    console.log(error);
+  } finally {
+    res.end();
+  }
+};

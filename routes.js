@@ -30,6 +30,10 @@ const NAVER_CALLBACK = "/auth/naver/callback";
 //favicon
 const FAVICON = "/favicon.ico";
 
+//Api
+const API = "/api";
+const REGISTER_VIEW = "/:id/view";
+
 const routes = {
   home: HOME,
   login: LOGIN,
@@ -75,6 +79,8 @@ const routes = {
   naver: NAVER,
   naverCallback: NAVER_CALLBACK,
   me: ME,
+  api: API,
+  view: REGISTER_VIEW,
 };
 
 export default routes;
