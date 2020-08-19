@@ -39,7 +39,6 @@ export const videoDetail = async (req, res) => {
       .populate("creator")
       .populate("comments");
     res.render("videoDetail", { video });
-    console.log(video);
   } catch (error) {
     console.log(error);
     res.redirect(routes.home);
@@ -136,7 +135,6 @@ export const postAddComment = async (req, res) => {
     body: { comment },
     user,
   } = req;
-  console.log(req.user);
   try {
     const video = await Video.findById(id);
     const newComment = await Comment.create({
@@ -145,6 +143,26 @@ export const postAddComment = async (req, res) => {
     });
     video.comments.push(newComment.id);
     video.save();
+  } catch (error) {
+    console.log(error);
+    res.status(400);
+  } finally {
+    res.end();
+  }
+};
+
+export const deleteComment = async (req, res) => {
+  const {
+    params: { id },
+    body: { comment },
+  } = req;
+  try {
+    const video = await Video.findById(id).populate("comments");
+    const comment = Comment.findById(id);
+    //뭔가 이상하다
+    await Comment.findByIdAndDelete({ _id: comment.id });
+    video.save();
+    console.log(video);
   } catch (error) {
     console.log(error);
     res.status(400);

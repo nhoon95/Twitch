@@ -33,7 +33,9 @@ block content
                 span.video__comment-number #{video.comments.length} comments
             form.add__comments#jsAddComment
                 input(type="text", placeholder="Add a comment")
-            ul.video__comments-ul
-                each comment in video.comments
-                    li
-                        span=comment.text 
+            ul#jsvideCommentsUl
+                each comment  in video.comments
+                    li#commentList
+                        span#commentText=comment.text
+                        button#delBtn(value=comment.id) x
+                    

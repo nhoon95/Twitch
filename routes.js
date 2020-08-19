@@ -34,6 +34,7 @@ const FAVICON = "/favicon.ico";
 const API = "/api";
 const REGISTER_VIEW = "/:id/view";
 const COMMENT = "/:id/comment";
+const DELETE_COMMENT = "/:id/deletecomment";
 
 const routes = {
   home: HOME,
@@ -83,6 +84,7 @@ const routes = {
   api: API,
   view: REGISTER_VIEW,
   comment: COMMENT,
+  deletecomment: DELETE_COMMENT,
 };
 
 export default routes;
