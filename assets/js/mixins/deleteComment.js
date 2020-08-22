@@ -3,14 +3,14 @@ const commentList = document.getElementById("commentList");
 const commentText = document.getElementById("commentText");
 const delBtn = document.getElementById("delBtn");
 
-const axiosDelete = async (id) => {
+const axiosDelete = async (comment) => {
   const videoId = window.location.href.split("/video/")[1];
   const response = await axios({
     url: `/api/${videoId}/deletecomment`,
     method: "POST",
     data: {
       //코멘트 아이디를 찾아서 지워야댐
-      id: id,
+      comment: comment,
     },
   });
   console.log(response);

@@ -2,6 +2,7 @@ import routes from "../routes";
 import Video from "../models/Video";
 import Image from "../models/Image";
 import Comment from "../models/Comment";
+import Mongoose from "mongoose";
 
 export const getUpload = (req, res) => res.render("upload");
 export const postUpload = async (req, res) => {
@@ -157,12 +158,15 @@ export const deleteComment = async (req, res) => {
     body: { comment },
   } = req;
   try {
+    /*
+    1.코멘트 아이디를 얻고,
+    2.코멘트를 삭제하고,(
+    3.저장하고(save)
+    */
     const video = await Video.findById(id).populate("comments");
-    const comment = Comment.findById(id);
-    //뭔가 이상하다
-    await Comment.findByIdAndDelete({ _id: comment.id });
+    const findComment = await Comment.findOneAndDelete(comment);
     video.save();
-    console.log(video);
+    console.log(findComment);
   } catch (error) {
     console.log(error);
     res.status(400);
